@@ -3,3 +3,4 @@ novel-capstone.pem
 tmp*
 .DS_Store
 *tfstate*
+*pyc
