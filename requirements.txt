@@ -2,5 +2,5 @@ dbt-core
 dagster
 dagit
 black==23.9.1
-sqlfluff=2.3.2
+sqlfluff==2.3.2
 sqlfluff-templater-dbt==2.3.2
