@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: novel
+    database: novel
+    schema: raw
+    tables:
+      - name: bubble_user
+      - name: bubble_category
+      - name: ga4_bigquery_events
+      - name: stripe_customers
+      - name: stripe_charges

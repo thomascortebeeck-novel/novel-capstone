@@ -1,0 +1,9 @@
+
+models:
+  - name: customer
+    description: this is a raw table with stripe customer info
+    columns:
+      - name: customer_key
+        tests:
+          - unique
+          - not_null

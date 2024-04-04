@@ -1,0 +1,5 @@
+
+models:
+  - name: charges
+    description: this is a raw table with stripe charges info
+

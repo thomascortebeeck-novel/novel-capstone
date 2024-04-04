@@ -1,0 +1,8 @@
+models:
+  - name: ga4_purchase_utm
+    description: this is a raw table with bubble interest/category information
+    columns:
+      - name: charge_key
+        tests:
+          - unique
+          - not_null

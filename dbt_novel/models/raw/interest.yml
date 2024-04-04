@@ -1,0 +1,12 @@
+models:
+  - name: interest
+    description: this is a raw table with bubble interest/category information
+    columns:
+      - name: interest_key
+        tests:
+          - unique
+          - not_null
+      - name: interest_name
+        tests:
+          - accepted_values:
+              values: ['art', 'history','romantic','suprise me']

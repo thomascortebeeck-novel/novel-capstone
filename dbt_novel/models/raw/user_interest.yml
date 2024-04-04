@@ -1,0 +1,8 @@
+models:
+  - name: user_key
+    description: this is a raw table with bubble user and interest information
+    columns:
+      - name: user_interest_key
+        tests:
+          - unique
+          - not_null
