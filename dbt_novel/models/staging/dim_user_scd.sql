@@ -15,7 +15,6 @@ WITH scd AS (
         dbt_valid_to
     FROM {{ ref('snapshot_user') }} -- Referencing the snapshot
 )
-
 SELECT
     *,
     CASE
