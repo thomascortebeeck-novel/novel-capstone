@@ -12,5 +12,6 @@ airbyte_assets_job = define_asset_job(
         "novel/stripe_charges",
         "novel/stripe_customers",
         "novel/stripe_refunds",
+        "novel/meta_ads_insights",
     ).required_multi_asset_neighbors()
 )

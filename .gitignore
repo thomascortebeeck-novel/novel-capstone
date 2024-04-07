@@ -1,5 +1,6 @@
 novel-capstone.pem
 .env
+.envrc
 tmp*
 .DS_Store
 *tfstate*

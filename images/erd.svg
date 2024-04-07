@@ -1,0 +1,338 @@
+<svg version="1.1" baseProfile="full" width="758.0" height="2320.0" viewbox="0 0 758 2320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
+	<desc >#background: #FFFFFF
+	[User|_AIRBYTE_RAW_ID:string;_AIRBYTE_EXTRACTED_AT:datetime;_AIRBYTE_META:json;_ID:string;EMAIL:string;GENDER:string;INTEREST:json;LAST_NAME:string;FIRST_NAME:string;CREATED_DATE:datetime;MODIFIED_DATE:datetime;AUTHENTICATION:json;USER_SIGNED_UP:boolean;STRIPECUSTOMERID:string]
+	[Category|_AIRBYTE_RAW_ID:string;_AIRBYTE_EXTRACTED_AT:datetime;_AIRBYTE_META:json;_ID:string;NAME:string;CREATED_BY:string;CREATED_DATE:datetime;MODIFIED_DATE:datetime]
+	[Novel|_AIRBYTE_RAW_ID:string;_AIRBYTE_EXTRACTED_AT:datetime;_AIRBYTE_META:json;_ID:string;IMAGE:url;PRICE:float;TITLE:string;CATEGORY:string;CREATED_BY:string;DESCRIPTION:text;CREATED_DATE:datetime;MODIFIED_DATE:datetime]
+	[Order|_AIRBYTE_RAW_ID:string;_AIRBYTE_EXTRACTED_AT:datetime;_AIRBYTE_META:json;_ID:string;NOVEL:string;STATUS:string;CREATED_BY:string;CREATED_DATE:datetime;MODIFIED_DATE:datetime]
+	[StripeCustomer|_AIRBYTE_RAW_ID:string;_AIRBYTE_EXTRACTED_AT:datetime;_AIRBYTE_META:json;ID:string;NAME:string;EMAIL:string;PHONE:string;OBJECT:string;ADDRESS:json;BALANCE:int;CREATED:int;SOURCES:int;UPDATED:int;CURRENCY:string;DISCOUNT:string;LIVEMODE:boolean;METADATA:json;SHIPPING:json;TAX_INFO:json;DELINQUENT:boolean;IS_DELETED:boolean;TAX_EXEMPT:string;TEST_CLOCK:string;DESCRIPTION:string;DEFAULT_CARD:string;SUBSCRIPTIONS:string;DEFAULT_SOURCE:string;INVOICE_PREFIX:string;ACCOUNT_BALANCE:int;INVOICE_SETTINGS:json;PREFERRED_LOCALES:string;NEXT_INVOICE_SEQUENCE:int;TAX_INFO_VERIFICATION:json]
+	[StripeCharges|_AIRBYTE_RAW_ID:string;_AIRBYTE_EXTRACTED_AT:datetime;_AIRBYTE_META:json;ID:string;AMOUNT:int;CURRENCY:string;CUSTOMER:string;STATUS:string;CAPTURED:boolean;CREATED:int;UPDATED:int;DESCRIPTION:string;PAID:boolean;RECEIPT_URL:string;TRANSACTION_ID:string]
+	[GA4BigQueryEvents|_AIRBYTE_RAW_ID:string;_AIRBYTE_EXTRACTED_AT:datetime;_AIRBYTE_META:json;GEO:json;ITEMS:json;DEVICE:json;USER_ID:string;APP_INFO:json;PLATFORM:string;USER_LTV:json;ECOMMERCE:json;STREAM_ID:int;EVENT_DATE:int;EVENT_NAME:string;EVENT_PARAMS:json;PRIVACY_INFO:json;IS_ACTIVE_USER:boolean;TRAFFIC_SOURCE:json;USER_PSEUDO_ID:string;EVENT_TIMESTAMP:int;USER_PROPERTIES:json;EVENT_DIMENSIONS:json;EVENT_VALUE_IN_USD:float;COLLECTED_TRAFFIC_SOURCE:json;EVENT_BUNDLE_SEQUENCE_ID:int;EVENT_PREVIOUS_TIMESTAMP:int;USER_FIRST_TOUCH_TIMESTAMP:int;EVENT_SERVER_TIMESTAMP_OFFSET:int]
+	[NovelCategory|FK_CATEGORY_ID:string;FK_NOVEL_ID:string]
+	
+	[User|STRIPECUSTOMERID] 1-0..1 [StripeCustomer|ID]
+	[User] 1--* [Category]
+	[User] 1--* [Novel]
+	[User] 1--* [Order]
+	[Novel] 1--* [Order]
+	[Order|ID] *--1 [StripeCharges|TRANSACTION_ID]
+	[Order|ID] *--1 [GA4BigQueryEvents|TRANSACTION_ID in ECOMMERCE]
+	[StripeCharges|ID] *--1 [GA4BigQueryEvents|TRANSACTION_ID in ECOMMERCE]
+	[Category] 1--* [NovelCategory]
+	[NovelCategory] *--1 [Novel]</desc>
+	<g stroke-width="1.0" text-align="left" font="12pt Helvetica, Arial, sans-serif" font-size="12pt" font-family="Helvetica" font-weight="normal" font-style="normal">
+		<g font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round" stroke="#33322E">
+			<g stroke="transparent" fill="#FFFFFF">
+				<rect x="0.0" y="0.0" height="2320.0" width="758.0" stroke="none"></rect>
+			</g>
+			<g transform="translate(48, 8)" fill="#33322E">
+				<g transform="translate(20, 20)" fill="#33322E" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal">
+					<text x="176.7" y="277.0" stroke="none">1</text>
+					<text x="117.5" y="289.0" stroke="none">0..1</text>
+					<path d="M168.7 257.0 L155.5 277 L155.5 297 L155.5 297.0 " fill="none"></path>
+					<text x="390.8" y="227.2" stroke="none">1</text>
+					<text x="554.5" y="476.5" stroke="none">*</text>
+					<g stroke-dasharray="6 6">
+						<path d="M408.8 207.2 L546.5 277 L546.5 484.5 L546.5 484.5 " fill="none"></path>
+					</g>
+					<text x="319.8" y="277.0" stroke="none">1</text>
+					<text x="373.6" y="988.0" stroke="none">*</text>
+					<g stroke-dasharray="6 6">
+						<path d="M337.8 257.0 L351 277 L351 568 L351 568 L351 859 L351 859 L351 917.5 L351 917.5 L351 976 L351 976 L365.6441947565543 996 L365.6 996.0 " fill="none"></path>
+					</g>
+					<text x="105.8" y="227.2" stroke="none">1</text>
+					<text x="105.8" y="1287.1" stroke="none">*</text>
+					<g stroke-dasharray="6 6">
+						<path d="M97.8 207.2 L-40 277 L-40 568 L-40 568 L-40 859 L-40 859 L-40 917.5 L-40 917.5 L-40 976 L-40 976 L-40 1109.5 L-40 1109.5 L-40 1243 L-40 1243 L97.75 1295.1406649616367 L97.8 1295.1 " fill="none"></path>
+					</g>
+					<text x="456.8" y="1243.0" stroke="none">1</text>
+					<text x="393.8" y="1257.7" stroke="none">*</text>
+					<g stroke-dasharray="6 6">
+						<path d="M448.8 1223.0 L448.75 1243 L408.75 1265.7109974424552 L408.8 1265.7 " fill="none"></path>
+					</g>
+					<text x="318.4" y="1465.0" stroke="none">*</text>
+					<text x="359.0" y="1477.0" stroke="none">1</text>
+					<g stroke-dasharray="6 6">
+						<path d="M333.4 1445.0 L351 1465 L351 1485 L351.0 1485.0 " fill="none"></path>
+					</g>
+					<text x="181.1" y="1465.0" stroke="none">*</text>
+					<text x="171.2" y="1789.0" stroke="none">1</text>
+					<g stroke-dasharray="6 6">
+						<path d="M173.1 1445.0 L155.5 1465 L155.5 1621 L155.5 1621 L155.5 1777 L155.5 1777 L163.2120315581854 1797 L163.2 1797.0 " fill="none"></path>
+					</g>
+					<text x="359.0" y="1777.0" stroke="none">*</text>
+					<text x="325.3" y="1789.0" stroke="none">1</text>
+					<g stroke-dasharray="6 6">
+						<path d="M351.0 1757.0 L351 1777 L343.2879684418146 1797 L343.3 1797.0 " fill="none"></path>
+					</g>
+					<text x="554.5" y="671.5" stroke="none">1</text>
+					<text x="531.5" y="871.0" stroke="none">*</text>
+					<g stroke-dasharray="6 6">
+						<path d="M546.5 651.5 L546.5 859 L546.5 879 L546.5 879.0 " fill="none"></path>
+					</g>
+					<text x="554.5" y="976.0" stroke="none">*</text>
+					<text x="513.9" y="988.0" stroke="none">1</text>
+					<g stroke-dasharray="6 6">
+						<path d="M546.5 956.0 L546.5 976 L531.8558052434457 996 L531.9 996.0 " fill="none"></path>
+					</g>
+					<g data-name="User">
+						<g fill="#eee8d5" stroke="#33322E" data-name="User">
+							<rect x="97.8" y="0.0" height="257.0" width="311.0" data-name="User"></rect>
+							<path d="M97.8 31.0 L408.8 31.0" fill="none" data-name="User"></path>
+						</g>
+						<g transform="translate(97.75, 0)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="User">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="User">
+								<text x="147.5" y="13.5" stroke="none" text-anchor="middle" data-name="User">User</text>
+								
+							</g>
+						</g>
+						<g transform="translate(97.75, 31)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="User">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="User">
+								<text x="0.0" y="13.5" stroke="none" data-name="User">_AIRBYTE_RAW_ID:string</text>
+								<text x="0.0" y="28.5" stroke="none" data-name="User">_AIRBYTE_EXTRACTED_AT:datetime</text>
+								<text x="0.0" y="43.5" stroke="none" data-name="User">_AIRBYTE_META:json</text>
+								<text x="0.0" y="58.5" stroke="none" data-name="User">_ID:string</text>
+								<text x="0.0" y="73.5" stroke="none" data-name="User">EMAIL:string</text>
+								<text x="0.0" y="88.5" stroke="none" data-name="User">GENDER:string</text>
+								<text x="0.0" y="103.5" stroke="none" data-name="User">INTEREST:json</text>
+								<text x="0.0" y="118.5" stroke="none" data-name="User">LAST_NAME:string</text>
+								<text x="0.0" y="133.5" stroke="none" data-name="User">FIRST_NAME:string</text>
+								<text x="0.0" y="148.5" stroke="none" data-name="User">CREATED_DATE:datetime</text>
+								<text x="0.0" y="163.5" stroke="none" data-name="User">MODIFIED_DATE:datetime</text>
+								<text x="0.0" y="178.5" stroke="none" data-name="User">AUTHENTICATION:json</text>
+								<text x="0.0" y="193.5" stroke="none" data-name="User">USER_SIGNED_UP:boolean</text>
+								<text x="0.0" y="208.5" stroke="none" data-name="User">STRIPECUSTOMERID:string</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="Category">
+						<g fill="#eee8d5" stroke="#33322E" data-name="Category">
+							<rect x="391.0" y="484.5" height="167.0" width="311.0" data-name="Category"></rect>
+							<path d="M391.0 515.5 L702.0 515.5" fill="none" data-name="Category"></path>
+						</g>
+						<g transform="translate(391, 484.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Category">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Category">
+								<text x="147.5" y="13.5" stroke="none" text-anchor="middle" data-name="Category">Category</text>
+								
+							</g>
+						</g>
+						<g transform="translate(391, 515.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Category">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Category">
+								<text x="0.0" y="13.5" stroke="none" data-name="Category">_AIRBYTE_RAW_ID:string</text>
+								<text x="0.0" y="28.5" stroke="none" data-name="Category">_AIRBYTE_EXTRACTED_AT:datetime</text>
+								<text x="0.0" y="43.5" stroke="none" data-name="Category">_AIRBYTE_META:json</text>
+								<text x="0.0" y="58.5" stroke="none" data-name="Category">_ID:string</text>
+								<text x="0.0" y="73.5" stroke="none" data-name="Category">NAME:string</text>
+								<text x="0.0" y="88.5" stroke="none" data-name="Category">CREATED_BY:string</text>
+								<text x="0.0" y="103.5" stroke="none" data-name="Category">CREATED_DATE:datetime</text>
+								<text x="0.0" y="118.5" stroke="none" data-name="Category">MODIFIED_DATE:datetime</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="Novel">
+						<g fill="#eee8d5" stroke="#33322E" data-name="Novel">
+							<rect x="293.3" y="996.0" height="227.0" width="311.0" data-name="Novel"></rect>
+							<path d="M293.3 1027.0 L604.3 1027.0" fill="none" data-name="Novel"></path>
+						</g>
+						<g transform="translate(293.25, 996)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Novel">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Novel">
+								<text x="147.5" y="13.5" stroke="none" text-anchor="middle" data-name="Novel">Novel</text>
+								
+							</g>
+						</g>
+						<g transform="translate(293.25, 1027)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Novel">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Novel">
+								<text x="0.0" y="13.5" stroke="none" data-name="Novel">_AIRBYTE_RAW_ID:string</text>
+								<text x="0.0" y="28.5" stroke="none" data-name="Novel">_AIRBYTE_EXTRACTED_AT:datetime</text>
+								<text x="0.0" y="43.5" stroke="none" data-name="Novel">_AIRBYTE_META:json</text>
+								<text x="0.0" y="58.5" stroke="none" data-name="Novel">_ID:string</text>
+								<text x="0.0" y="73.5" stroke="none" data-name="Novel">IMAGE:url</text>
+								<text x="0.0" y="88.5" stroke="none" data-name="Novel">PRICE:float</text>
+								<text x="0.0" y="103.5" stroke="none" data-name="Novel">TITLE:string</text>
+								<text x="0.0" y="118.5" stroke="none" data-name="Novel">CATEGORY:string</text>
+								<text x="0.0" y="133.5" stroke="none" data-name="Novel">CREATED_BY:string</text>
+								<text x="0.0" y="148.5" stroke="none" data-name="Novel">DESCRIPTION:text</text>
+								<text x="0.0" y="163.5" stroke="none" data-name="Novel">CREATED_DATE:datetime</text>
+								<text x="0.0" y="178.5" stroke="none" data-name="Novel">MODIFIED_DATE:datetime</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="Order">
+						<g fill="#eee8d5" stroke="#33322E" data-name="Order">
+							<rect x="97.8" y="1263.0" height="182.0" width="311.0" data-name="Order"></rect>
+							<path d="M97.8 1294.0 L408.8 1294.0" fill="none" data-name="Order"></path>
+						</g>
+						<g transform="translate(97.75, 1263)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Order">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Order">
+								<text x="147.5" y="13.5" stroke="none" text-anchor="middle" data-name="Order">Order</text>
+								
+							</g>
+						</g>
+						<g transform="translate(97.75, 1294)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Order">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Order">
+								<text x="0.0" y="13.5" stroke="none" data-name="Order">_AIRBYTE_RAW_ID:string</text>
+								<text x="0.0" y="28.5" stroke="none" data-name="Order">_AIRBYTE_EXTRACTED_AT:datetime</text>
+								<text x="0.0" y="43.5" stroke="none" data-name="Order">_AIRBYTE_META:json</text>
+								<text x="0.0" y="58.5" stroke="none" data-name="Order">_ID:string</text>
+								<text x="0.0" y="73.5" stroke="none" data-name="Order">NOVEL:string</text>
+								<text x="0.0" y="88.5" stroke="none" data-name="Order">STATUS:string</text>
+								<text x="0.0" y="103.5" stroke="none" data-name="Order">CREATED_BY:string</text>
+								<text x="0.0" y="118.5" stroke="none" data-name="Order">CREATED_DATE:datetime</text>
+								<text x="0.0" y="133.5" stroke="none" data-name="Order">MODIFIED_DATE:datetime</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="StripeCustomer">
+						<g fill="#eee8d5" stroke="#33322E" data-name="StripeCustomer">
+							<rect x="0.0" y="297.0" height="542.0" width="311.0" data-name="StripeCustomer"></rect>
+							<path d="M0.0 328.0 L311.0 328.0" fill="none" data-name="StripeCustomer"></path>
+						</g>
+						<g transform="translate(0, 297)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="StripeCustomer">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="StripeCustomer">
+								<text x="147.5" y="13.5" stroke="none" text-anchor="middle" data-name="StripeCustomer">StripeCustomer</text>
+								
+							</g>
+						</g>
+						<g transform="translate(0, 328)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="StripeCustomer">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="StripeCustomer">
+								<text x="0.0" y="13.5" stroke="none" data-name="StripeCustomer">_AIRBYTE_RAW_ID:string</text>
+								<text x="0.0" y="28.5" stroke="none" data-name="StripeCustomer">_AIRBYTE_EXTRACTED_AT:datetime</text>
+								<text x="0.0" y="43.5" stroke="none" data-name="StripeCustomer">_AIRBYTE_META:json</text>
+								<text x="0.0" y="58.5" stroke="none" data-name="StripeCustomer">ID:string</text>
+								<text x="0.0" y="73.5" stroke="none" data-name="StripeCustomer">NAME:string</text>
+								<text x="0.0" y="88.5" stroke="none" data-name="StripeCustomer">EMAIL:string</text>
+								<text x="0.0" y="103.5" stroke="none" data-name="StripeCustomer">PHONE:string</text>
+								<text x="0.0" y="118.5" stroke="none" data-name="StripeCustomer">OBJECT:string</text>
+								<text x="0.0" y="133.5" stroke="none" data-name="StripeCustomer">ADDRESS:json</text>
+								<text x="0.0" y="148.5" stroke="none" data-name="StripeCustomer">BALANCE:int</text>
+								<text x="0.0" y="163.5" stroke="none" data-name="StripeCustomer">CREATED:int</text>
+								<text x="0.0" y="178.5" stroke="none" data-name="StripeCustomer">SOURCES:int</text>
+								<text x="0.0" y="193.5" stroke="none" data-name="StripeCustomer">UPDATED:int</text>
+								<text x="0.0" y="208.5" stroke="none" data-name="StripeCustomer">CURRENCY:string</text>
+								<text x="0.0" y="223.5" stroke="none" data-name="StripeCustomer">DISCOUNT:string</text>
+								<text x="0.0" y="238.5" stroke="none" data-name="StripeCustomer">LIVEMODE:boolean</text>
+								<text x="0.0" y="253.5" stroke="none" data-name="StripeCustomer">METADATA:json</text>
+								<text x="0.0" y="268.5" stroke="none" data-name="StripeCustomer">SHIPPING:json</text>
+								<text x="0.0" y="283.5" stroke="none" data-name="StripeCustomer">TAX_INFO:json</text>
+								<text x="0.0" y="298.5" stroke="none" data-name="StripeCustomer">DELINQUENT:boolean</text>
+								<text x="0.0" y="313.5" stroke="none" data-name="StripeCustomer">IS_DELETED:boolean</text>
+								<text x="0.0" y="328.5" stroke="none" data-name="StripeCustomer">TAX_EXEMPT:string</text>
+								<text x="0.0" y="343.5" stroke="none" data-name="StripeCustomer">TEST_CLOCK:string</text>
+								<text x="0.0" y="358.5" stroke="none" data-name="StripeCustomer">DESCRIPTION:string</text>
+								<text x="0.0" y="373.5" stroke="none" data-name="StripeCustomer">DEFAULT_CARD:string</text>
+								<text x="0.0" y="388.5" stroke="none" data-name="StripeCustomer">SUBSCRIPTIONS:string</text>
+								<text x="0.0" y="403.5" stroke="none" data-name="StripeCustomer">DEFAULT_SOURCE:string</text>
+								<text x="0.0" y="418.5" stroke="none" data-name="StripeCustomer">INVOICE_PREFIX:string</text>
+								<text x="0.0" y="433.5" stroke="none" data-name="StripeCustomer">ACCOUNT_BALANCE:int</text>
+								<text x="0.0" y="448.5" stroke="none" data-name="StripeCustomer">INVOICE_SETTINGS:json</text>
+								<text x="0.0" y="463.5" stroke="none" data-name="StripeCustomer">PREFERRED_LOCALES:string</text>
+								<text x="0.0" y="478.5" stroke="none" data-name="StripeCustomer">NEXT_INVOICE_SEQUENCE:int</text>
+								<text x="0.0" y="493.5" stroke="none" data-name="StripeCustomer">TAX_INFO_VERIFICATION:json</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="StripeCharges">
+						<g fill="#eee8d5" stroke="#33322E" data-name="StripeCharges">
+							<rect x="195.5" y="1485.0" height="272.0" width="311.0" data-name="StripeCharges"></rect>
+							<path d="M195.5 1516.0 L506.5 1516.0" fill="none" data-name="StripeCharges"></path>
+						</g>
+						<g transform="translate(195.5, 1485)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="StripeCharges">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="StripeCharges">
+								<text x="147.5" y="13.5" stroke="none" text-anchor="middle" data-name="StripeCharges">StripeCharges</text>
+								
+							</g>
+						</g>
+						<g transform="translate(195.5, 1516)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="StripeCharges">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="StripeCharges">
+								<text x="0.0" y="13.5" stroke="none" data-name="StripeCharges">_AIRBYTE_RAW_ID:string</text>
+								<text x="0.0" y="28.5" stroke="none" data-name="StripeCharges">_AIRBYTE_EXTRACTED_AT:datetime</text>
+								<text x="0.0" y="43.5" stroke="none" data-name="StripeCharges">_AIRBYTE_META:json</text>
+								<text x="0.0" y="58.5" stroke="none" data-name="StripeCharges">ID:string</text>
+								<text x="0.0" y="73.5" stroke="none" data-name="StripeCharges">AMOUNT:int</text>
+								<text x="0.0" y="88.5" stroke="none" data-name="StripeCharges">CURRENCY:string</text>
+								<text x="0.0" y="103.5" stroke="none" data-name="StripeCharges">CUSTOMER:string</text>
+								<text x="0.0" y="118.5" stroke="none" data-name="StripeCharges">STATUS:string</text>
+								<text x="0.0" y="133.5" stroke="none" data-name="StripeCharges">CAPTURED:boolean</text>
+								<text x="0.0" y="148.5" stroke="none" data-name="StripeCharges">CREATED:int</text>
+								<text x="0.0" y="163.5" stroke="none" data-name="StripeCharges">UPDATED:int</text>
+								<text x="0.0" y="178.5" stroke="none" data-name="StripeCharges">DESCRIPTION:string</text>
+								<text x="0.0" y="193.5" stroke="none" data-name="StripeCharges">PAID:boolean</text>
+								<text x="0.0" y="208.5" stroke="none" data-name="StripeCharges">RECEIPT_URL:string</text>
+								<text x="0.0" y="223.5" stroke="none" data-name="StripeCharges">TRANSACTION_ID:string</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="GA4BigQueryEvents">
+						<g fill="#eee8d5" stroke="#33322E" data-name="GA4BigQueryEvents">
+							<rect x="75.8" y="1797.0" height="467.0" width="355.0" data-name="GA4BigQueryEvents"></rect>
+							<path d="M75.8 1828.0 L430.8 1828.0" fill="none" data-name="GA4BigQueryEvents"></path>
+						</g>
+						<g transform="translate(75.75, 1797)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="GA4BigQueryEvents">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="GA4BigQueryEvents">
+								<text x="169.5" y="13.5" stroke="none" text-anchor="middle" data-name="GA4BigQueryEvents">GA4BigQueryEvents</text>
+								
+							</g>
+						</g>
+						<g transform="translate(75.75, 1828)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="GA4BigQueryEvents">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="GA4BigQueryEvents">
+								<text x="0.0" y="13.5" stroke="none" data-name="GA4BigQueryEvents">_AIRBYTE_RAW_ID:string</text>
+								<text x="0.0" y="28.5" stroke="none" data-name="GA4BigQueryEvents">_AIRBYTE_EXTRACTED_AT:datetime</text>
+								<text x="0.0" y="43.5" stroke="none" data-name="GA4BigQueryEvents">_AIRBYTE_META:json</text>
+								<text x="0.0" y="58.5" stroke="none" data-name="GA4BigQueryEvents">GEO:json</text>
+								<text x="0.0" y="73.5" stroke="none" data-name="GA4BigQueryEvents">ITEMS:json</text>
+								<text x="0.0" y="88.5" stroke="none" data-name="GA4BigQueryEvents">DEVICE:json</text>
+								<text x="0.0" y="103.5" stroke="none" data-name="GA4BigQueryEvents">USER_ID:string</text>
+								<text x="0.0" y="118.5" stroke="none" data-name="GA4BigQueryEvents">APP_INFO:json</text>
+								<text x="0.0" y="133.5" stroke="none" data-name="GA4BigQueryEvents">PLATFORM:string</text>
+								<text x="0.0" y="148.5" stroke="none" data-name="GA4BigQueryEvents">USER_LTV:json</text>
+								<text x="0.0" y="163.5" stroke="none" data-name="GA4BigQueryEvents">ECOMMERCE:json</text>
+								<text x="0.0" y="178.5" stroke="none" data-name="GA4BigQueryEvents">STREAM_ID:int</text>
+								<text x="0.0" y="193.5" stroke="none" data-name="GA4BigQueryEvents">EVENT_DATE:int</text>
+								<text x="0.0" y="208.5" stroke="none" data-name="GA4BigQueryEvents">EVENT_NAME:string</text>
+								<text x="0.0" y="223.5" stroke="none" data-name="GA4BigQueryEvents">EVENT_PARAMS:json</text>
+								<text x="0.0" y="238.5" stroke="none" data-name="GA4BigQueryEvents">PRIVACY_INFO:json</text>
+								<text x="0.0" y="253.5" stroke="none" data-name="GA4BigQueryEvents">IS_ACTIVE_USER:boolean</text>
+								<text x="0.0" y="268.5" stroke="none" data-name="GA4BigQueryEvents">TRAFFIC_SOURCE:json</text>
+								<text x="0.0" y="283.5" stroke="none" data-name="GA4BigQueryEvents">USER_PSEUDO_ID:string</text>
+								<text x="0.0" y="298.5" stroke="none" data-name="GA4BigQueryEvents">EVENT_TIMESTAMP:int</text>
+								<text x="0.0" y="313.5" stroke="none" data-name="GA4BigQueryEvents">USER_PROPERTIES:json</text>
+								<text x="0.0" y="328.5" stroke="none" data-name="GA4BigQueryEvents">EVENT_DIMENSIONS:json</text>
+								<text x="0.0" y="343.5" stroke="none" data-name="GA4BigQueryEvents">EVENT_VALUE_IN_USD:float</text>
+								<text x="0.0" y="358.5" stroke="none" data-name="GA4BigQueryEvents">COLLECTED_TRAFFIC_SOURCE:json</text>
+								<text x="0.0" y="373.5" stroke="none" data-name="GA4BigQueryEvents">EVENT_BUNDLE_SEQUENCE_ID:int</text>
+								<text x="0.0" y="388.5" stroke="none" data-name="GA4BigQueryEvents">EVENT_PREVIOUS_TIMESTAMP:int</text>
+								<text x="0.0" y="403.5" stroke="none" data-name="GA4BigQueryEvents">USER_FIRST_TOUCH_TIMESTAMP:int</text>
+								<text x="0.0" y="418.5" stroke="none" data-name="GA4BigQueryEvents">EVENT_SERVER_TIMESTAMP_OFFSET:int</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="NovelCategory">
+						<g fill="#eee8d5" stroke="#33322E" data-name="NovelCategory">
+							<rect x="438.5" y="879.0" height="77.0" width="216.0" data-name="NovelCategory"></rect>
+							<path d="M438.5 910.0 L654.5 910.0" fill="none" data-name="NovelCategory"></path>
+						</g>
+						<g transform="translate(438.5, 879)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="NovelCategory">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="NovelCategory">
+								<text x="100.0" y="13.5" stroke="none" text-anchor="middle" data-name="NovelCategory">NovelCategory</text>
+								
+							</g>
+						</g>
+						<g transform="translate(438.5, 910)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="NovelCategory">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="NovelCategory">
+								<text x="0.0" y="13.5" stroke="none" data-name="NovelCategory">FK_CATEGORY_ID:string</text>
+								<text x="0.0" y="28.5" stroke="none" data-name="NovelCategory">FK_NOVEL_ID:string</text>
+								
+							</g>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>
