@@ -7,6 +7,9 @@ sources:
     tables:
       - name: bubble_user
       - name: bubble_category
+      - name: bubble_order
+      - name: bubble_novel
       - name: ga4_bigquery_events
       - name: stripe_customers
       - name: stripe_charges
+      - name: meta_ads_insights

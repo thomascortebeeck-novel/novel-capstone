@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: recommendation
+    description: "This model produces recommendations with a user_id and order_id."
+    tests:
+      - unique_user_order_combination

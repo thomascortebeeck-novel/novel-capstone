@@ -2,4 +2,8 @@
 models:
   - name: charges
     description: this is a raw table with stripe charges info
-
+    columns:
+      - name: transaction_key
+        tests:
+          - unique
+          - not_null

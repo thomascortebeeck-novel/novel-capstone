@@ -1,0 +1,4 @@
+
+models:
+  - name: novel
+    description: this is a raw table with novel data from bubble

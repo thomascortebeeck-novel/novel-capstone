@@ -1,0 +1,4 @@
+
+models:
+  - name: meta_insights
+    description: this is a raw table with ad data from meta

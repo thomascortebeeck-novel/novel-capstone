@@ -1,8 +1,8 @@
 models:
   - name: ga4_purchase_utm
-    description: this is a raw table with bubble interest/category information
+    description: this is a raw table with BigQuery events and their related UTM tags
     columns:
-      - name: charge_key
+      - name: transaction_key
         tests:
           - unique
           - not_null

@@ -2,10 +2,6 @@ models:
   - name: user
     description: this is a raw table with bubble user information
     columns:
-      - name: user_key
-        tests:
-          - unique
-          - not_null
       - name: gender
         tests:
           - accepted_values:

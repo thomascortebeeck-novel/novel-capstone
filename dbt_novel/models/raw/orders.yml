@@ -1,0 +1,12 @@
+models:
+  - name: orders
+    description: this is a raw table with bubble interest/category information
+    columns:
+      - name: order_key
+        tests:
+          - unique
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['pending', 'done']
