@@ -38,7 +38,10 @@ group by
         order_created_timestamp,
         order_updated_timetamp,
         order_created_date
--- group by for deduplication purposes
+-- group by for deduplication
+-- other methods: distinct and window row number = 1 fitlered
+-- source: https://thinketl.com/how-to-remove-duplicates-in-snowflakes/
 
+s
 -- don't add interest here, because this would lead to duplicate rows which isn't required for fact_order table
 -- ask teacher about this

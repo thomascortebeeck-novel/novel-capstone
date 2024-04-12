@@ -6,7 +6,7 @@ This captstone project uses the following data engineering tools:
 - Github to push various versions
 
 This is an overview of the entire project: 
-![data project](images/dataproject.png)
+![data project](images/capstoneproject.png)
 
 First of all, data is extracted from various live dataset sources using Airbyte:
 - BigQuery which contains Google Analytics 4 which is generated via Google Tag Manager using the dataLayer (Javascript) (sync mode: incremental append based on event_timestamp)
